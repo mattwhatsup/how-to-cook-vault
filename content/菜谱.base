@@ -1,0 +1,7 @@
+views:
+  - type: table
+    name: 表格
+    filters:
+      and:
+        - file.path.startsWith("dishes")
+        - file.fullname.endsWith("md")
