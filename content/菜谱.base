@@ -1,7 +1,164 @@
+filters:
+  and:
+    - file.path.startsWith("菜谱")
+    - file.fullname.endsWith("md")
+formulas:
+  难度评星: if(难度评星>0, "👾".repeat(难度评星), "")
+  难度: if(难度评星>0, "👾".repeat(难度评星), "")
 views:
+  - type: cards
+    name: 菜谱（全部）
+    order:
+      - file.name
+      - 分类
+      - formula.难度评星
+    image: note.图片
   - type: table
-    name: 表格
+    name: 菜谱列表
+    order:
+      - file.name
+      - 分类
+      - 难度评星
+    sort:
+      - property: 难度评星
+        direction: ASC
+  - type: cards
+    name: 1星难度
     filters:
       and:
-        - file.path.startsWith("dishes")
-        - file.fullname.endsWith("md")
+        - 难度评星 == 1
+    order:
+      - file.name
+      - 分类
+      - formula.难度
+    image: note.图片
+  - type: cards
+    name: 2星难度
+    filters:
+      and:
+        - 难度评星 == 2
+    order:
+      - file.name
+      - 分类
+      - formula.难度
+    image: note.图片
+  - type: cards
+    name: 3星难度
+    filters:
+      and:
+        - 难度评星 == 3
+    order:
+      - file.name
+      - 分类
+      - formula.难度
+    image: note.图片
+  - type: cards
+    name: 4星难度
+    filters:
+      and:
+        - 难度评星 == 4
+    order:
+      - file.name
+      - 分类
+      - formula.难度
+    image: note.图片
+  - type: cards
+    name: 5星难度
+    filters:
+      and:
+        - 难度评星 == 5
+    order:
+      - file.name
+      - 分类
+      - formula.难度
+    image: note.图片
+  - type: cards
+    name: 早餐
+    filters:
+      and:
+        - 分类 == "早餐"
+    order:
+      - file.name
+      - formula.难度
+    image: note.图片
+  - type: cards
+    name: 素菜
+    filters:
+      and:
+        - 分类 == "素菜"
+    order:
+      - file.name
+      - formula.难度
+    image: note.图片
+  - type: cards
+    name: 荤菜
+    filters:
+      and:
+        - 分类 == "荤菜"
+    order:
+      - file.name
+      - formula.难度
+    image: note.图片
+  - type: cards
+    name: 水产
+    filters:
+      and:
+        - 分类 == "水产"
+    order:
+      - file.name
+      - formula.难度
+    image: note.图片
+  - type: cards
+    name: 主食
+    filters:
+      and:
+        - 分类 == "主食"
+    order:
+      - file.name
+      - formula.难度
+    image: note.图片
+  - type: cards
+    name: 半成品
+    filters:
+      and:
+        - 分类 == "半成品"
+    order:
+      - file.name
+      - formula.难度
+    image: note.图片
+  - type: cards
+    name: 汤
+    filters:
+      and:
+        - 分类 == "汤"
+    order:
+      - file.name
+      - formula.难度
+    image: note.图片
+  - type: cards
+    name: 饮品
+    filters:
+      and:
+        - 分类 == "饮品"
+    order:
+      - file.name
+      - formula.难度
+    image: note.图片
+  - type: cards
+    name: 酱料和其它材料
+    filters:
+      and:
+        - 分类 == "酱料和其它材料"
+    order:
+      - file.name
+      - formula.难度
+    image: note.图片
+  - type: cards
+    name: 甜品
+    filters:
+      and:
+        - 分类 == "甜品"
+    order:
+      - file.name
+      - formula.难度
+    image: note.图片
